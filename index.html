@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abid Wijaya Teknik — Solusi Las & Fabrikasi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Abid Wijaya Teknik — Solusi Las Modern</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     /* RESET & GLOBAL */
     * {
@@ -13,16 +13,28 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --primary: #0B2447;
+      --secondary: #19376D;
+      --accent: #576CBC;
+      --bg: #F8F9FA;
+      --card: #FFFFFF;
+      --text: #0B2447;
+      --light-text: #6B7280;
+    }
+
     body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #F8F9FA;
-      color: #2B2D42;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4, h5 {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 700;
+      line-height: 1.2;
     }
 
     .container {
@@ -32,47 +44,67 @@
     }
 
     .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      background-color: #E63946;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      background-color: var(--secondary);
       color: white;
       text-decoration: none;
-      border-radius: 50px;
-      font-family: 'Poppins', sans-serif;
+      border-radius: 12px;
+      font-family: 'Manrope', sans-serif;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(25, 55, 109, 0.2);
     }
 
     .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(25, 55, 109, 0.3);
+      background-color: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
     }
 
     section {
-      padding: 80px 0;
+      padding: 100px 0;
     }
 
-    /* HEADER */
+    /* HEADER — MODERN STICKY */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 20px 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
     }
 
     header.scrolled {
-      background: #1D3557;
+      background: var(--primary);
+      padding: 15px 0;
     }
 
     header.scrolled .nav-link,
-    header.scrolled .btn {
+    header.scrolled .logo,
+    header.scrolled .hamburger div {
       color: white;
     }
 
@@ -83,33 +115,68 @@
     }
 
     .logo {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Manrope', sans-serif;
       font-weight: 700;
-      font-size: 1.5rem;
-      color: #E63946;
+      font-size: 1.6rem;
+      color: var(--primary);
       text-decoration: none;
+      letter-spacing: -0.5px;
     }
 
     .nav-menu {
       display: flex;
-      gap: 30px;
+      gap: 36px;
     }
 
     .nav-link {
-      color: #2B2D42;
+      color: var(--primary);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
       transition: color 0.3s;
     }
 
-    .nav-link:hover {
-      color: #E63946;
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
     }
 
-    /* HERO */
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* HAMBURGER — MODERN */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger div {
+      width: 28px;
+      height: 3px;
+      background-color: var(--primary);
+      margin: 4px 0;
+      transition: 0.4s;
+      border-radius: 2px;
+    }
+
+    /* HERO — FULLSCREEN MODERN */
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://images.unsplash.com/photo-1595341888018-52429d73f0ce?ixlib=rb-4.0.3') no-repeat center center/cover;
+      background: linear-gradient(rgba(11, 36, 71, 0.7), rgba(11, 36, 71, 0.7)), url('https://images.unsplash.com/photo-1595341888018-52429d73f0ce?ixlib=rb-4.0.3') no-repeat center center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -118,16 +185,21 @@
       padding: 0 20px;
     }
 
+    .hero-content {
+      max-width: 800px;
+    }
+
     .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
     }
 
     .hero-content p {
       font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 40px;
+      margin-bottom: 40px;
+      opacity: 0.95;
     }
 
     .hero-btns {
@@ -137,28 +209,18 @@
       flex-wrap: wrap;
     }
 
-    .btn-outline {
-      background: transparent;
-      border: 2px solid white;
-    }
-
-    .btn-outline:hover {
-      background: white;
-      color: #1D3557;
-    }
-
-    /* LAYANAN */
+    /* SECTION TITLE — MODERN UNDERLINE */
     .section-title {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 80px;
     }
 
     .section-title h2 {
-      font-size: 2.2rem;
-      color: #1D3557;
-      position: relative;
+      font-size: 2.5rem;
+      color: var(--primary);
       display: inline-block;
-      padding-bottom: 15px;
+      position: relative;
+      padding-bottom: 20px;
     }
 
     .section-title h2::after {
@@ -169,48 +231,62 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: #E63946;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
+    /* SERVICES — MODERN CARD GRID */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
     }
 
     .service-card {
-      background: white;
+      background: var(--card);
       padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-radius: 20px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.03);
       text-align: center;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     }
 
     .service-icon {
       font-size: 3rem;
-      color: #E63946;
-      margin-bottom: 20px;
+      color: var(--accent);
+      margin-bottom: 24px;
     }
 
-    /* GALERI */
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    /* GALLERY — MODERN MASONRY GRID */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
     .gallery-item {
       position: relative;
-      height: 250px;
+      height: 300px;
+      border-radius: 16px;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
     }
 
     .gallery-item img {
@@ -221,7 +297,7 @@
     }
 
     .gallery-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     .gallery-overlay {
@@ -229,125 +305,180 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(29, 53, 87, 0.85);
+      padding: 24px;
+      background: linear-gradient(transparent, rgba(11, 36, 71, 0.9));
       color: white;
-      padding: 15px;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease;
     }
 
     .gallery-item:hover .gallery-overlay {
       transform: translateY(0);
+      opacity: 1;
     }
 
-    /* TENTANG */
+    /* ABOUT — SPLIT LAYOUT MODERN */
     .about {
-      background: white;
+      background: var(--card);
     }
 
     .about-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 60px;
       align-items: center;
+    }
+
+    .about-img {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
     .about-img img {
       width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: block;
     }
 
     .about-text h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #1D3557;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: var(--primary);
     }
 
-    /* TESTIMONI */
+    /* TESTIMONIAL — MODERN QUOTE */
     .testimonials {
-      background: #1D3557;
+      background: var(--primary);
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: """;
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30rem;
+      font-family: serif;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
     }
 
     .testimonial {
       max-width: 800px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 60px 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .testimonial p {
+      font-size: 1.3rem;
       font-style: italic;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .testimonial p::before,
+    .testimonial p::after {
+      content: """
+      font-size: 3rem;
+      color: rgba(255,255,255,0.3);
+      position: absolute;
+    }
+
+    .testimonial p::before {
+      top: -20px;
+      left: -30px;
+    }
+
+    .testimonial p::after {
+      bottom: -40px;
+      right: -30px;
     }
 
     .testimonial-author {
       font-weight: 600;
-      color: #F1FAEE;
+      font-size: 1.1rem;
+      color: var(--accent);
     }
 
-    /* CTA */
+    /* CTA — MODERN GRADIENT */
     .cta {
-      background: linear-gradient(135deg, #E63946, #1D3557);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
     }
 
     .cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
 
     .cta-form {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 16px;
       justify-content: center;
     }
 
     .cta-form input,
     .cta-form select {
-      padding: 12px 20px;
+      padding: 16px 24px;
       border: none;
-      border-radius: 50px;
+      border-radius: 12px;
       flex: 1;
-      min-width: 200px;
+      min-width: 250px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.9);
+      color: var(--primary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
     .cta-form .btn {
-      background: #F1FAEE;
-      color: #1D3557;
-      font-weight: 700;
+      background: var(--accent);
+      color: white;
+      min-width: 250px;
     }
 
     .cta-form .btn:hover {
-      background: white;
+      background: #4259A8;
     }
 
-    /* FOOTER */
+    /* FOOTER — MODERN MINIMAL */
     footer {
-      background: #2B2D42;
-      color: #F1FAEE;
-      padding: 60px 0 30px;
+      background: var(--primary);
+      color: white;
+      padding: 80px 0 40px;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      gap: 50px;
+      margin-bottom: 60px;
     }
 
     .footer-col h4 {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+      font-size: 1.3rem;
+      margin-bottom: 24px;
       position: relative;
-      padding-bottom: 10px;
+      padding-bottom: 12px;
     }
 
     .footer-col h4::after {
@@ -357,7 +488,8 @@
       left: 0;
       width: 50px;
       height: 3px;
-      background: #E63946;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     .footer-col ul {
@@ -365,39 +497,40 @@
     }
 
     .footer-col ul li {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .footer-col a {
-      color: #F1FAEE;
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
       transition: color 0.3s;
+      font-size: 0.95rem;
     }
 
     .footer-col a:hover {
-      color: #E63946;
+      color: var(--accent);
     }
 
     .social-links {
       display: flex;
-      gap: 15px;
+      gap: 16px;
       margin-top: 20px;
     }
 
     .social-links a {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.3s;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
     }
 
     .social-links a:hover {
-      background: #E63946;
+      background: var(--accent);
+      transform: translateY(-3px);
     }
 
     .copyright {
@@ -405,40 +538,130 @@
       padding-top: 30px;
       border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
     }
 
-    /* FLOATING WHATSAPP */
+    /* FLOATING WHATSAPP — MODERN */
     .whatsapp-float {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      width: 64px;
+      height: 64px;
       background: #25D366;
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      font-size: 1.8rem;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
       z-index: 999;
       text-decoration: none;
-      transition: transform 0.3s;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.1);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
     }
 
-    /* RESPONSIVE */
+    /* LIGHTBOX — MODERN */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border: 4px solid white;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+
+    .close-lightbox:hover {
+      transform: rotate(90deg);
+    }
+
+    /* RESPONSIVE — MOBILE FIRST */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+    }
+
     @media (max-width: 768px) {
-      .nav-menu {
-        display: none; /* Untuk versi mobile, bisa ditambahkan hamburger menu JS */
+      section {
+        padding: 70px 0;
       }
 
-      .hero-content h1 {
-        font-size: 2.2rem;
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        transition: left 0.4s ease;
+        z-index: 999;
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
       }
 
       .about-content {
@@ -448,34 +671,52 @@
       .about-img {
         order: -1;
       }
+
+      .cta-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Lightbox -->
+  <div class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <div class="lightbox-content">
+      <img src="" alt="Gambar Proyek">
+    </div>
+  </div>
+
   <!-- Header -->
   <header id="header">
     <div class="container nav-container">
       <a href="#" class="logo">Abid Wijaya Teknik</a>
-      <nav class="nav-menu">
+      <nav class="nav-menu" id="nav-menu">
         <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Layanan</a>
-        <a href="#" class="nav-link">Galeri</a>
-        <a href="#" class="nav-link">Tentang</a>
-        <a href="#" class="nav-link">Kontak</a>
+        <a href="#layanan" class="nav-link">Layanan</a>
+        <a href="#galeri" class="nav-link">Galeri</a>
+        <a href="#tentang" class="nav-link">Tentang</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
       </nav>
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <a href="#kontak" class="btn">Pesan Sekarang</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <h1>BENGKEL LAS PROFESIONAL</h1>
-      <p>Kuat, Presisi, dan Tepat Waktu — Melayani Fabrikasi Besi, Pagar, Kanopi, Tangga, dan Custom Project</p>
+      <h1>SOLUSI LAS & FABRIKASI <span style="color:#576CBC">MODERN</span></h1>
+      <p>Kami menggabungkan presisi teknik tinggi dengan desain kontemporer — untuk hasil yang kuat, fungsional, dan estetis.</p>
       <div class="hero-btns">
         <a href="#galeri" class="btn btn-outline">Lihat Portofolio</a>
-        <a href="#kontak" class="btn">Hubungi Kami</a>
+        <a href="#kontak" class="btn">Mulai Proyek Anda</a>
       </div>
     </div>
   </section>
@@ -484,23 +725,23 @@
   <section id="layanan">
     <div class="container">
       <div class="section-title">
-        <h2>Layanan Kami</h2>
+        <h2>Layanan Premium Kami</h2>
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">🛠️</div>
-          <h3>Fabrikasi Besi Custom</h3>
-          <p>Pintu, jendela, railing, struktur bangunan, dan kebutuhan custom sesuai desain Anda.</p>
+          <div class="service-icon">⚡</div>
+          <h3>Fabrikasi Besi Presisi</h3>
+          <p>Desain custom, cutting laser, welding presisi — untuk hasil akhir yang sempurna.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">🏗️</div>
-          <h3>Konstruksi & Instalasi</h3>
-          <p>Tim profesional kami siap melakukan pemasangan di lokasi dengan aman dan rapi.</p>
+          <h3>Instalasi Profesional</h3>
+          <p>Tim ahli kami menangani pemasangan di lokasi dengan standar keamanan tinggi.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">⚙️</div>
-          <h3>Perbaikan & Modifikasi</h3>
-          <p>Las ulang, perkuatan struktur, modifikasi mesin, atau perbaikan kerusakan logam.</p>
+          <div class="service-icon">🔧</div>
+          <h3>Modifikasi & Perbaikan</h3>
+          <p>Perkuatan struktur, modifikasi mesin, atau restorasi — kami siap membantu.</p>
         </div>
       </div>
     </div>
@@ -510,53 +751,45 @@
   <section id="galeri">
     <div class="container">
       <div class="section-title">
-        <h2>Galeri Proyek</h2>
+        <h2>Portofolio Terbaru</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item">
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
           <img src="gambar/contoh 1.jpeg" alt="Proyek 1">
           <div class="gallery-overlay">
-            <h4>Pagar Minimalis</h4>
+            <h4>Pagar Artistik</h4>
             <p>Jakarta Selatan</p>
           </div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1595341888018-52429d73f0ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
           <img src="gambar/contoh 3.jpg" alt="Proyek 2">
           <div class="gallery-overlay">
             <h4>Kanopi Carport</h4>
             <p>Bekasi</p>
           </div>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1616684598539-42c761c301a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
           <img src="gambar/tangga estetik.jpg" alt="Proyek 3">
           <div class="gallery-overlay">
             <h4>Tangga Besi Artistik</h4>
             <p>Bandung</p>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="gambar/reling.jpeg" alt="Proyek 4">
-          <div class="gallery-overlay">
-            <h4>Railing Balkon</h4>
-            <p>Tangerang</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- Tentang -->
-  <section class="about">
+  <section id="tentang" class="about">
     <div class="container">
       <div class="about-content">
         <div class="about-img">
-          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tim Abid Wijaya Teknik">
+          <img src="gambar/gambar disain.jpg" alt="Tim Abid Wijaya Teknik">
         </div>
         <div class="about-text">
-          <h3>Tentang Abid Wijaya Teknik</h3>
-          <p>Lebih dari 10 tahun membangun kepercayaan. Kami percaya bahwa setiap lasan adalah komitmen. Presisi, ketahanan, dan kepuasan pelanggan adalah prioritas utama kami.</p>
-          <p>Dari rumah tinggal hingga proyek komersial — kami siap mewujudkan kebutuhan Anda dengan kualitas terbaik dan harga bersaing.</p>
-          <a href="#" class="btn" style="margin-top: 20px;">Baca Selengkapnya</a>
+          <h3>Lebih dari Sekadar Bengkel Las</h3>
+          <p>Didirikan sejak 2015, Abid Wijaya Teknik berkembang menjadi mitra terpercaya dalam solusi fabrikasi logam modern. Kami menggabungkan keahlian teknis dengan pendekatan desain kontemporer.</p>
+          <p>Setiap proyek dikerjakan dengan standar kualitas tertinggi — karena kami percaya, logam yang ditempa dengan presisi adalah investasi jangka panjang.</p>
+          <a href="#" class="btn" style="margin-top: 30px;">Kenali Tim Kami</a>
         </div>
       </div>
     </div>
@@ -565,12 +798,9 @@
   <!-- Testimoni -->
   <section class="testimonials">
     <div class="container">
-      <div class="section-title">
-        <h2 style="color: white;">Apa Kata Pelanggan</h2>
-      </div>
       <div class="testimonial">
-        <p>“Hasilnya rapi, sesuai gambar, dan timnya sangat responsif. Pengerjaan cepat dan harganya transparan. Recomended banget!”</p>
-        <div class="testimonial-author">— Pak Budi, Cibubur</div>
+        <p>Hasil kerja luar biasa. Detail, presisi, dan komunikasi sangat baik. Proyek selesai tepat waktu dan sesuai anggaran. Sangat direkomendasikan!</p>
+        <div class="testimonial-author">— Ibu Santi, Arsitek Interior</div>
       </div>
     </div>
   </section>
@@ -578,20 +808,20 @@
   <!-- CTA -->
   <section id="kontak" class="cta">
     <div class="container">
-      <h2>Butuh Solusi Las atau Fabrikasi?</h2>
-      <p>Tim kami siap membantu dari konsultasi hingga pemasangan!</p>
-      <div class="cta-form">
-        <input type="text" placeholder="Nama Anda" required>
-        <input type="tel" placeholder="WhatsApp" required>
-        <select>
-          <option>Pilih Jenis Proyek</option>
-          <option>Pagar Minimalis</option>
-          <option>Kanopi</option>
-          <option>Tangga Besi</option>
-          <option>Fabrikasi Custom</option>
+      <h2>Siap Wujudkan Proyek Anda?</h2>
+      <p>Konsultasi gratis — tim kami siap membantu dari desain hingga pemasangan akhir.</p>
+      <form id="contact-form" class="cta-form">
+        <input type="text" id="nama" placeholder="Nama Lengkap" required>
+        <input type="tel" id="wa" placeholder="Nomor WhatsApp" required>
+        <select id="proyek">
+          <option value="" disabled selected>Jenis Proyek</option>
+          <option>Fabrikasi Besi</option>
+          <option>Pagar & Kanopi</option>
+          <option>Tangga & Railing</option>
+          <option>Proyek Custom</option>
         </select>
-        <button class="btn">Kirim Permintaan</button>
-      </div>
+        <button type="submit" class="btn">Kirim Permintaan</button>
+      </form>
     </div>
   </section>
 
@@ -601,7 +831,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <h4>Abid Wijaya Teknik</h4>
-          <p>Presisi dalam Setiap Lasan. Solusi fabrikasi besi terpercaya sejak 2015.</p>
+          <p>Menghadirkan solusi fabrikasi logam modern sejak 2015 — presisi, estetika, dan kekuatan dalam setiap karya.</p>
           <div class="social-links">
             <a href="#">📱</a>
             <a href="#">📘</a>
@@ -614,39 +844,89 @@
             <li><a href="#">Fabrikasi Besi</a></li>
             <li><a href="#">Pagar & Kanopi</a></li>
             <li><a href="#">Tangga & Railing</a></li>
-            <li><a href="#">Perbaikan & Modifikasi</a></li>
+            <li><a href="#">Perbaikan Struktur</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Kontak</h4>
+          <h4>Hubungi Kami</h4>
           <ul>
             <li>📍 Jl. Mekar Bakti, Kec. Panongan, Kabupaten Tangerang, Banten</li>
-            <li>📞  0821-1180-8600 </li>
-            <li>✉️ abidfaezyawijaya@email.com</li>
+            <li>📞 +0821-1180-8600</li>
+            <li>✉️ abidfaezyawijaya@gmail.com</li>
           </ul>
         </div>
       </div>
       <div class="copyright">
-        © 2025 Abid Wijaya Teknik. All rights reserved.
+        © 2025 Abid Wijaya Teknik. Crafted with precision.
       </div>
     </div>
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank">💬</a>
+  <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank" aria-label="Chat via WhatsApp">💬</a>
 
-  <!-- JS untuk efek scroll header -->
+  <!-- JS -->
   <script>
-    window.addEventListener('scroll', function() {
+    // Sticky Header
+    window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
-      if (window.scrollY > 100) {
-        header.classList.add('scrolled');
+      header.classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const closeLightbox = document.querySelector('.close-lightbox');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImg.src = item.getAttribute('data-img');
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    [closeLightbox, lightbox].forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === closeLightbox) {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+
+    // Form
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nama = document.getElementById('nama').value;
+      const wa = document.getElementById('wa').value;
+      const proyek = document.getElementById('proyek').value;
+      
+      if (nama && wa && proyek) {
+        alert(`✅ Terima kasih, ${nama}!\n\nPermintaan "${proyek}" telah terkirim.\nTim kami akan segera menghubungi Anda di: ${wa}`);
+        this.reset();
       } else {
-        header.classList.remove('scrolled');
+        alert("⚠️ Mohon lengkapi semua kolom.");
       }
     });
   </script>
 
 </body>
 </html>
-
